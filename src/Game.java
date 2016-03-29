@@ -20,7 +20,7 @@ public class Game {
                                                                 //kaarten.set(0,CardsEnum.getCard(CardsEnum.Smithy));
     }
     public ArrayList<Card> getAHand(){                          //methode om en hand te maken(5 kaarten)
-        ArrayList<Card> hand = new ArrayList<Card>();           //maakt een nieuwe ArrayList aan van het type 'Card' met als naam 'hand'
+        ArrayList<Card> hand = new ArrayList<Card>();           //maakt een nieuwe ArrayList aan van het type 'Card' met als naam 'hand'//
 
         for (int i = 0; i < 5; i++) {
              hand.add(this.kaarten.get(i));
