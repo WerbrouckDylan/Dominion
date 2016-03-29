@@ -2,13 +2,17 @@ import java.util.ArrayList;
 
 public class Player {
     private int score = 0;
+    private String naam;
+    private ArrayList<Card> spelerHand;
+
+    public Player(ArrayList<Card> spelerHand, String naam) {
+        this.spelerHand = spelerHand;
+        this.naam = naam;
+    }
 
     public String getNaam() {
         return naam;
     }
-
-    private String naam;
-    private ArrayList<Card> spelerHand;
 
     public int getScore() {
         return score;
@@ -18,8 +22,5 @@ public class Player {
         return spelerHand;
     }
 
-    public Player(ArrayList<Card> spelerHand, String naam) {
-        this.spelerHand = spelerHand;
-        this.naam = naam;
-    }
+
 }

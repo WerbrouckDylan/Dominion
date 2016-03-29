@@ -19,7 +19,7 @@ public class Game {
 
                                                                 //kaarten.set(0,CardsEnum.getCard(CardsEnum.Smithy));
     }
-    public ArrayList<Card> GetAHand(){                          //methode om en hand te maken(5 kaarten)
+    public ArrayList<Card> getAHand(){                          //methode om en hand te maken(5 kaarten)
         ArrayList<Card> hand = new ArrayList<Card>();           //maakt een nieuwe ArrayList aan van het type 'Card' met als naam 'hand'
 
         for (int i = 0; i < 5; i++) {
@@ -36,18 +36,26 @@ public class Game {
         Game mainGame = new Game();
         ArrayList<Player> playerArrayList = new ArrayList<Player>();
 
-        playerArrayList.add(new Player(mainGame.GetAHand(),"Pietje"));
+        playerArrayList.add(new Player(mainGame.getAHand(),"Pietje"));
 
         mainGame.ShuffleCards();
         
-        playerArrayList.add(new Player(mainGame.GetAHand(),"Rudy"));
+        playerArrayList.add(new Player(mainGame.getAHand(),"Rudy"));
 
         GetTotalCoinValue(playerArrayList.get(0).getSpelerHand());
-        //playerArrayList.get(0).getSpelerHand();
-        GetTotalCoinValue(playerArrayList.get(1).getSpelerHand());
+
+        PrettyPrintCards(mainGame.getAHand());
+
+        //GetTotalCoinValue(playerArrayList.get(1).getSpelerHand());
+       // System.out.println(playerArrayList.get(0).getNaam());
+        //System.out.println(playerArrayList.get(0).getSpelerHand().toString());
+
+       // System.out.println(mainGame.GetAHand());
 
         //((KingdomCard)mainGame.getKaarten().get(0)).doAbility();
     }
+
+
 
     public static void PrettyPrintCards(ArrayList<Card> kaarten){
         for (int kaart = 0; kaart < kaarten.size(); kaart++) {
