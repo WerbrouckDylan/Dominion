@@ -42,15 +42,19 @@ public class Game {
         
         playerArrayList.add(new Player(mainGame.getAHand(),"Rudy"));
 
+        System.out.println(playerArrayList.get(0).getNaam() + " heeft als kaarten:");
+
+        PrettyPrintCards(playerArrayList.get(0).getSpelerHand());
+
         GetTotalCoinValue(playerArrayList.get(0).getSpelerHand());
 
-        PrettyPrintCards(mainGame.getAHand());
+        System.out.println("------------------------------------------------------------------");
 
-        //GetTotalCoinValue(playerArrayList.get(1).getSpelerHand());
-       // System.out.println(playerArrayList.get(0).getNaam());
-        //System.out.println(playerArrayList.get(0).getSpelerHand().toString());
+        System.out.println(playerArrayList.get(1).getNaam() + " heeft als kaarten:");
 
-       // System.out.println(mainGame.GetAHand());
+        PrettyPrintCards(playerArrayList.get(1).getSpelerHand());
+
+        GetTotalCoinValue(playerArrayList.get(1).getSpelerHand());
 
         //((KingdomCard)mainGame.getKaarten().get(0)).doAbility();
     }
@@ -62,8 +66,8 @@ public class Game {
             System.out.println(kaarten.get(kaart).getName());
             try{
                 TreasureCard treasureCard = ((TreasureCard)kaarten.get(kaart));
-                System.out.println("Value is= " + treasureCard.getCoinValue());
-                System.out.println();
+                //System.out.println("Value is= " + treasureCard.getCoinValue());
+                //System.out.println();
             }catch(ClassCastException e){
 
             }
@@ -71,7 +75,7 @@ public class Game {
     }
 
     public static int GetTotalCoinValue(ArrayList<Card> kaarten){
-        PrettyPrintCards(kaarten);
+        //PrettyPrintCards(kaarten);
         int totalValue = 0;
         for (int i = 0; i < kaarten.size(); i++) {
              try {
