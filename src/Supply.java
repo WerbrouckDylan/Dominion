@@ -5,7 +5,7 @@ import java.util.Stack;
 public class Supply {
     static Map<CardsEnum, Stack<Card>> SupplyStacks = new HashMap<CardsEnum, Stack<Card>>();         //map -> dictionary(linkt key aan value, in dit geval cardsenum aan een stack)
 
-    public Supply(Map<CardsEnum, Stack<Card>> supplyStacks) {                                 //map vol steken met kaarten
+    public Supply(Map<CardsEnum, Stack<Card>> supplyStacks) {                                        //map vol steken met kaarten
         SupplyStacks = supplyStacks;
     }
 

@@ -2,14 +2,18 @@ import java.util.*;
 
 public class Game {
     private ArrayList<Card> HandKaarten = new ArrayList<Card>();            //maak een private ArrayList waar objecten van het type Card inzitten met de naam 'HandKaarten'
-    private ArrayList<VictoryCard> VictoryCards = new ArrayList<VictoryCard>();
 
-    public ArrayList<VictoryCard> getVictoryCards(){
-        return  VictoryCards;
+    public static void main(String[] args) {
+
     }
+
 
     public ArrayList<Card> getHandKaarten() {                               //een getter voor de ArrayList 'HandKaarten'
         return HandKaarten;
+    }
+
+    public void ShuffleHandCards(){
+        Collections.shuffle(HandKaarten);
     }
 
     public Game() {                                                         //methode om de eerste 10 HandKaarten(7 copper, 3 estate) in de ArrayList 'HandKaarten' te stoppen
@@ -21,11 +25,6 @@ public class Game {
         }                                                                   //'HandKaarten' bevat nu 7 copper en 3 estate, in volgorde
         ShuffleHandCards();                                                     //shuffled de arrylist 'HandKaarten'
 
-
-/**        for (int i = 0; i < 24; i++) {
-            VictoryCards.add(CardsEnum.getCard(CardsEnum.Estate));
-        }
-          **/                                                            //HandKaarten.set(0,CardsEnum.getCard(CardsEnum.Smithy));
     }
     public ArrayList<Card> getAHand(){                                      //methode om en hand te maken(5 HandKaarten)
         ArrayList<Card> hand = new ArrayList<Card>();                       //maakt een nieuwe ArrayList aan van het type 'Card' met als naam 'hand'//
@@ -35,52 +34,6 @@ public class Game {
         }
         return hand;
     }
-
-    public void ShuffleHandCards(){
-        Collections.shuffle(HandKaarten);
-    }
-
-    public static void main(String[] args) {
-        Game mainGame = new Game();
-
-        ArrayList<Player> playerArrayList = new ArrayList<Player>();
-        //ArrayList<Card> KingdomcardsTestList = new ArrayList<Card>();
-
-
-        playerArrayList.add(new Player(mainGame.getAHand(),"Pietje"));
-
-        mainGame.ShuffleHandCards();                                                                //shuffled de arrylist 'HandKaarten'
-
-        playerArrayList.add(new Player(mainGame.getAHand(),"Rudy"));
-
-        System.out.println(playerArrayList.get(0).getNaam() + " heeft als HandKaarten:");
-
-        PrettyPrintCards(playerArrayList.get(0).getSpelerHand());
-
-        getTotalCoinValue(playerArrayList.get(0).getSpelerHand());
-
-        System.out.println("------------------------------------------------------------------");
-
-        System.out.println(playerArrayList.get(1).getNaam() + " heeft als HandKaarten:");
-
-        PrettyPrintCards(playerArrayList.get(1).getSpelerHand());
-
-        getTotalCoinValue(playerArrayList.get(1).getSpelerHand());
-        CardsEnum.getCard(CardsEnum.Curse).getCost();
-
-
-        System.out.println(CardsEnum.getCard(CardsEnum.Curse).getCost());
-        System.out.println(CardsEnum.getCard(CardsEnum.Curse).getName());
-        //((VictoryCard) CardsEnum.Estate);
-        AbilityEnum.doShit(AbilityEnum.Smithy);
-        //getVictorypoints(KingdomcardsTestList);
-        //getVictorypoints(playerArrayList.get(0));
-        ((VictoryCard)mainGame.getVictoryCards().get(0)).getName();
-        //CardsEnum.Province.(getVictorypoints(ArrayList<Card> VictoryCard));                               // i do not geraak wijs uit this
-        //((KingdomCard)mainGame.getHandKaarten().get(0)).doAbility();
-    }
-
-
 
     public static void PrettyPrintCards(ArrayList<Card> kaarten){
         for (int kaart = 0; kaart < kaarten.size(); kaart++) {
