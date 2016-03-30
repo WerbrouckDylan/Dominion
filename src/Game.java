@@ -22,10 +22,10 @@ public class Game {
         ShuffleHandCards();                                                     //shuffled de arrylist 'HandKaarten'
 
 
-        for (int i = 0; i < 24; i++) {
+/**        for (int i = 0; i < 24; i++) {
             VictoryCards.add(CardsEnum.getCard(CardsEnum.Estate));
         }
-                                                                      //HandKaarten.set(0,CardsEnum.getCard(CardsEnum.Smithy));
+          **/                                                            //HandKaarten.set(0,CardsEnum.getCard(CardsEnum.Smithy));
     }
     public ArrayList<Card> getAHand(){                                      //methode om en hand te maken(5 HandKaarten)
         ArrayList<Card> hand = new ArrayList<Card>();                       //maakt een nieuwe ArrayList aan van het type 'Card' met als naam 'hand'//
