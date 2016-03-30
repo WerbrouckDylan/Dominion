@@ -9,15 +9,15 @@ public class Player {
     private ArrayList<Card> spelerHand;
     private ArrayList<Card> PlayArea;
     private Stack<Card> DiscardPile;
-    private Stack<Card> Deck;
+    private Stack<Card> SpelerDeck;
 
-    public Player(ArrayList<Card> spelerHand, String naam) {
-        this.spelerHand = spelerHand;
+    public Player(Stack<Card> spelerDeck, String naam) {
+        this.SpelerDeck= spelerDeck;
         this.naam = naam;
     }
 
     public void takeCardsFromDeck(){
-        spelerHand.add(Deck.pop());
+        spelerHand.add(SpelerDeck.pop());
     }
 
     public void playAreaToDiscardpile(){
@@ -25,7 +25,7 @@ public class Player {
     }
 
     public Stack<Card> getDeck() {
-        return Deck;
+        return SpelerDeck;
     }
 
     public Stack<Card> getDiscardPile() {
