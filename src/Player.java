@@ -11,6 +11,9 @@ public class Player {
     private Stack<Card> DiscardPile;
     private Stack<Card> SpelerDeck;
 
+    ///shuffledeck mr-ethod
+
+
     public Player(Stack<Card> spelerDeck, String naam) {
         this.SpelerDeck= spelerDeck;
         this.naam = naam;
