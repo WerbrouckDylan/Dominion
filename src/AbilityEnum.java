@@ -1,13 +1,20 @@
+
 public enum AbilityEnum {
-    SMITHY,FESTIVAL;
+    Cellar,Smithy,Festival;
 
     public static void doShit(AbilityEnum ability){
         switch (ability){
-            case SMITHY:
+            case Smithy:
                 doSmithy();
              break;
+            case Cellar:
+                doCellar();
         }
 
+    }
+
+    private static void doCellar() {
+        System.out.println("Cellar done");
     }
 
     private static void doSmithy() {

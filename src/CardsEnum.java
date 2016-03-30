@@ -1,7 +1,7 @@
 import javax.swing.*;
 
 public enum CardsEnum {
-    Copper,Silver,Gold,Estate,Duchy,Province,Moat,Curse,Smithy;
+    Copper,Silver,Gold,Estate,Duchy,Province,Moat,Curse,Smithy,Cellar;
 
     public static Card getCard(CardsEnum card){
         switch (card){
@@ -25,10 +25,12 @@ public enum CardsEnum {
                 return new VictoryCard(0,-1,"Curse",new ImageIcon(""));
 
             //KingdomCards
+            case Cellar:
+                return new KingdomCard(2,AbilityEnum.Cellar,"Smithy",new ImageIcon(""));
             case Moat:
                 return new Card(1,"Moat",new ImageIcon(""));
             case Smithy:
-                return new KingdomCard(4,AbilityEnum.SMITHY,"Smithy",new ImageIcon(""));
+                return new KingdomCard(4,AbilityEnum.Smithy,"Smithy",new ImageIcon(""));
             default: return null;
         }
     }
