@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Stack;
 
 public class Player {
@@ -11,8 +13,9 @@ public class Player {
     private Stack<Card> DiscardPile;
     private Stack<Card> SpelerDeck;
 
-    ///shuffledeck mr-ethod
-
+    public void ShuffleDeck(){
+        Collections.shuffle(SpelerDeck);
+    }
 
     public Player(Stack<Card> spelerDeck, String naam) {
         this.SpelerDeck= spelerDeck;
@@ -26,6 +29,8 @@ public class Player {
     public void playAreaToDiscardpile(){
         PlayArea.addAll(DiscardPile);
     }
+
+    //// TODO: 31-3-2016  handtodiscardpile
 
     public Stack<Card> getDeck() {
         return SpelerDeck;

@@ -5,8 +5,7 @@ public class Game {
 
     public static void main(String[] args) {
 
-    }
-
+           }
 
     public ArrayList<Card> getHandKaarten() {                               //een getter voor de ArrayList 'HandKaarten'
         return HandKaarten;
@@ -61,7 +60,6 @@ public class Game {
         System.out.println("Total Value= " + totalValue);
         return totalValue;
     }
-
 
     //foefelinge
     public static int getVictorypoints(ArrayList<Card> kaarten){
