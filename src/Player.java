@@ -7,7 +7,7 @@ public class Player {
     private int coins = 0;
     private int buys = 0;
     private String naam;
-    private ArrayList<Card> spelerHand;
+    private ArrayList<Card> spelerHand = new ArrayList<Card>();
     private ArrayList<Card> PlayArea;
     private Stack<Card> DiscardPile;
     private Stack<Card> SpelerDeck;
@@ -21,26 +21,19 @@ public class Player {
         this.naam = naam;
     }
 
-    public Stack setStartingDeck(Stack<Card> SpelerDeck){
+    public Stack<Card> setStartingDeck(Stack<Card> SpelerDeckstart){
         for (int i = 0; i < 7; i++) {
-            SpelerDeck.add(CardsEnum.getCard(CardsEnum.Copper));
+            SpelerDeckstart.add(CardsEnum.getCard(CardsEnum.Copper));
         }
         for (int i = 0; i < 3; i++) {
-            SpelerDeck.add(CardsEnum.getCard(CardsEnum.Estate));
+            SpelerDeckstart.add(CardsEnum.getCard(CardsEnum.Estate));
         }
-        Collections.shuffle(SpelerDeck);
-        return SpelerDeck;
+        Collections.shuffle(SpelerDeckstart);
+        return SpelerDeckstart;
     }
-
-    public void setSpelerDeck(Stack<Card> spelerDeck) {
-        SpelerDeck = spelerDeck;
-    }
-
 
     public void takeCardsFromDeck(){
-        System.out.println(SpelerDeck.pop());
-       // spelerHand.add(SpelerDeck.pop());
-        System.out.println(spelerHand.get(0));
+       spelerHand.add(SpelerDeck.pop());
     }
 
     public void playAreaToDiscardpile(){
@@ -51,7 +44,7 @@ public class Player {
         spelerHand.addAll(DiscardPile);
     }
 
-    public Stack<Card> getDeck() {
+    public Stack<Card> getSpelerDeck() {
         return SpelerDeck;
     }
 
