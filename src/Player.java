@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Stack;
 
@@ -22,15 +21,35 @@ public class Player {
         this.naam = naam;
     }
 
+    public Stack setStartingDeck(Stack<Card> SpelerDeck){
+        for (int i = 0; i < 7; i++) {
+            SpelerDeck.add(CardsEnum.getCard(CardsEnum.Copper));
+        }
+        for (int i = 0; i < 3; i++) {
+            SpelerDeck.add(CardsEnum.getCard(CardsEnum.Estate));
+        }
+        Collections.shuffle(SpelerDeck);
+        return SpelerDeck;
+    }
+
+    public void setSpelerDeck(Stack<Card> spelerDeck) {
+        SpelerDeck = spelerDeck;
+    }
+
+
     public void takeCardsFromDeck(){
-        spelerHand.add(SpelerDeck.pop());
+        System.out.println(SpelerDeck.pop());
+       // spelerHand.add(SpelerDeck.pop());
+        System.out.println(spelerHand.get(0));
     }
 
     public void playAreaToDiscardpile(){
         PlayArea.addAll(DiscardPile);
     }
 
-    //// TODO: 31-3-2016  handtodiscardpile
+    public void handToDiscardPile(){
+        spelerHand.addAll(DiscardPile);
+    }
 
     public Stack<Card> getDeck() {
         return SpelerDeck;

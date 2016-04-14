@@ -6,7 +6,6 @@ public class TreasureCard extends Card {
     public TreasureCard(int cost,int coinValue, String name, ImageIcon i) {
         super(cost, name, i);
         this.coinValue = coinValue;
-
     }
 
     public int getCoinValue() {

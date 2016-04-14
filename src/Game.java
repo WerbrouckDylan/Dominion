@@ -1,11 +1,38 @@
 import java.util.*;
 
 public class Game {
-    private ArrayList<Card> HandKaarten = new ArrayList<Card>();            //maak een private ArrayList waar objecten van het type Card inzitten met de naam 'HandKaarten'
+    private ArrayList<Card> HandKaarten = new ArrayList<Card>();
+    //maak een private ArrayList waar objecten van het type Card inzitten met de naam 'HandKaarten'
+
+    public Game() {                                                         //methode om de eerste 10 HandKaarten(7 copper, 3 estate) in de ArrayList 'HandKaarten' te stoppen         //shuffled de arrylist 'HandKaarten'
+
+    }
+    public ArrayList<Card> getAHand(){                                      //methode om en hand te maken(5 HandKaarten)
+        ArrayList<Card> hand = new ArrayList<Card>();                       //maakt een nieuwe ArrayList aan van het type 'Card' met als naam 'hand'//
+
+        for (int i = 0; i < 5; i++) {
+            hand.add(this.HandKaarten.get(i));
+        }
+        return hand;
+    }
+
 
     public static void main(String[] args) {
+        Stack<Card> speler1stack = new Stack<Card>();
+        Player joske = new Player(speler1stack, "joske");
+        joske.setStartingDeck(speler1stack);
+        //joske.setSpelerDeck(speler1stack);
+        //System.out.println(joske.getSpelerHand());
 
-           }
+        System.out.println(joske.getDeck());
+        PrettyPrintCards(joske.getDeck());
+        getTotalCoinValue(joske.getDeck());
+        System.out.println("-------------------------------");
+
+        System.out.println(joske.getDeck().size());
+        joske.takeCardsFromDeck();
+        System.out.println(joske.getSpelerHand());
+    }
 
     public ArrayList<Card> getHandKaarten() {                               //een getter voor de ArrayList 'HandKaarten'
         return HandKaarten;
@@ -15,26 +42,7 @@ public class Game {
         Collections.shuffle(HandKaarten);
     }
 
-    public Game() {                                                         //methode om de eerste 10 HandKaarten(7 copper, 3 estate) in de ArrayList 'HandKaarten' te stoppen
-        for (int i = 0; i < 7; i++) {
-            HandKaarten.add(CardsEnum.getCard(CardsEnum.Copper));           //stopt 7 copper HandKaarten in de ArrayList 'HandKaarten' ; CardsEnum.getCard(CardsEnum.'inserthierjekaart')
-        }
-        for (int i = 0; i < 3; i++) {
-            HandKaarten.add(CardsEnum.getCard(CardsEnum.Estate));
-        }                                                                   //'HandKaarten' bevat nu 7 copper en 3 estate, in volgorde
-        ShuffleHandCards();                                                     //shuffled de arrylist 'HandKaarten'
-
-    }
-    public ArrayList<Card> getAHand(){                                      //methode om en hand te maken(5 HandKaarten)
-        ArrayList<Card> hand = new ArrayList<Card>();                       //maakt een nieuwe ArrayList aan van het type 'Card' met als naam 'hand'//
-
-        for (int i = 0; i < 5; i++) {
-             hand.add(this.HandKaarten.get(i));
-        }
-        return hand;
-    }
-
-    public static void PrettyPrintCards(ArrayList<Card> kaarten){
+    public static void PrettyPrintCards(Stack<Card> kaarten){
         for (int kaart = 0; kaart < kaarten.size(); kaart++) {
             System.out.println(kaarten.get(kaart).getName());
             try{
@@ -47,7 +55,7 @@ public class Game {
         }
     }
 
-    public static int getTotalCoinValue(ArrayList<Card> kaarten){
+    public static int getTotalCoinValue(Stack<Card> kaarten){
         //PrettyPrintCards(HandKaarten);
         int totalValue = 0;
         for (int i = 0; i < kaarten.size(); i++) {
