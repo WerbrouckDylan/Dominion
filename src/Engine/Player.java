@@ -1,3 +1,5 @@
+package engine;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Stack;
@@ -22,15 +24,14 @@ public class Player {
         this.naam = naam;
     }
 
-    public Stack<Card> setStartingDeck(Stack<Card> SpelerDeckstart){
+    public void initStartingDeck(){
         for (int i = 0; i < 7; i++) {
-            SpelerDeckstart.add(CardsEnum.getCard(CardsEnum.Copper));
+            SpelerDeck.add(CardsEnum.getCard(CardsEnum.Copper));
         }
         for (int i = 0; i < 3; i++) {
-            SpelerDeckstart.add(CardsEnum.getCard(CardsEnum.Estate));
+            SpelerDeck.add(CardsEnum.getCard(CardsEnum.Estate));
         }
-        Collections.shuffle(SpelerDeckstart);
-        return SpelerDeckstart;
+        Collections.shuffle(SpelerDeck);
     }
 
     public void discardPileToDeck(){
@@ -46,7 +47,8 @@ public class Player {
     }
 
     public void handToDiscardPile(){
-        spelerHand.addAll(DiscardPile);
+        DiscardPile.addAll(spelerHand);
+        spelerHand.clear();
     }
 
     public Stack<Card> getSpelerDeck() {
@@ -55,6 +57,10 @@ public class Player {
 
     public Stack<Card> getDiscardPile() {
         return DiscardPile;
+    }
+
+    public void setSpelerDeck(Stack<Card> spelerDeck){
+        this.SpelerDeck = spelerDeck;
     }
 
     public ArrayList<Card> getPlayArea() {

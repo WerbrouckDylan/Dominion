@@ -1,7 +1,8 @@
+package engine;
+
 import java.util.*;
 
 public class Game {
-    private ArrayList<Card> HandKaarten = new ArrayList<Card>();
 
     public Game() {
 
@@ -12,7 +13,7 @@ public class Game {
         Stack<Card> speler1DiscardPile = new Stack<Card>();
         Player joske = new Player(speler1Deck, speler1DiscardPile, "joske");
 
-        joske.setStartingDeck(speler1Deck);
+        joske.initStartingDeck();
         System.out.println("-------startingdeck joske------");
         PrintStack(joske.getSpelerDeck());
 
@@ -29,6 +30,9 @@ public class Game {
         System.out.println("-----------discardpile--------");
         joske.handToDiscardPile();
         PrintStack(joske.getDiscardPile());
+
+        System.out.println("---");
+        PrintArray(joske.getSpelerHand());
 
         System.out.println("-----------deck---------");
         joske.discardPileToDeck();

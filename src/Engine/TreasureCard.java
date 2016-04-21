@@ -1,3 +1,5 @@
+package engine;
+
 import javax.swing.*;
 
 public class TreasureCard extends Card {
