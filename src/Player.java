@@ -8,16 +8,17 @@ public class Player {
     private int buys = 0;
     private String naam;
     private ArrayList<Card> spelerHand = new ArrayList<Card>();
-    private ArrayList<Card> PlayArea;
-    private Stack<Card> DiscardPile;
-    private Stack<Card> SpelerDeck;
+    private ArrayList<Card> PlayArea = new ArrayList<Card>();
+    private Stack<Card> DiscardPile = new Stack<Card>();
+    private Stack<Card> SpelerDeck = new Stack<Card>();
 
     public void ShuffleDeck(){
         Collections.shuffle(SpelerDeck);
     }
 
-    public Player(Stack<Card> spelerDeck, String naam) {
+    public Player(Stack<Card> spelerDeck,Stack<Card> discardpile, String naam) {
         this.SpelerDeck= spelerDeck;
+        this.DiscardPile = discardpile;
         this.naam = naam;
     }
 
@@ -30,6 +31,10 @@ public class Player {
         }
         Collections.shuffle(SpelerDeckstart);
         return SpelerDeckstart;
+    }
+
+    public void discardPileToDeck(){
+        SpelerDeck.addAll(DiscardPile);
     }
 
     public void takeCardsFromDeck(){

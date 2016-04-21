@@ -28,7 +28,7 @@ public enum CardsEnum {
             case Cellar:
                 return new KingdomCard(2,AbilityEnum.Cellar,"Smithy",new ImageIcon(""));
             case Moat:
-                return new Card(1,"Moat",new ImageIcon(""));
+                return new KingdomCard(1,AbilityEnum.Moat,"Moat",new ImageIcon(""));
             case Smithy:
                 return new KingdomCard(4,AbilityEnum.Smithy,"Smithy",new ImageIcon(""));
             default: return null;

@@ -3,42 +3,37 @@ import java.util.*;
 public class Game {
     private ArrayList<Card> HandKaarten = new ArrayList<Card>();
 
-    public Stack<Card> starthandtest = new Stack<Card>();
-
     public Game() {
 
     }
-    public ArrayList<Card> getAHand(){
-        ArrayList<Card> hand = new ArrayList<Card>();
-
-        for (int i = 0; i < 5; i++) {
-            hand.add(this.HandKaarten.get(i));
-        }
-        return hand;
-    }
 
     public static void main(String[] args) {
-        Stack<Card> speler1stack = new Stack<Card>();
-        Player joske = new Player(speler1stack, "joske");
-        joske.setStartingDeck(speler1stack);
-        PrintStack(speler1stack);
-        System.out.println("----------------");
+        Stack<Card> speler1Deck = new Stack<Card>();
+        Stack<Card> speler1DiscardPile = new Stack<Card>();
+        Player joske = new Player(speler1Deck, speler1DiscardPile, "joske");
+
+        joske.setStartingDeck(speler1Deck);
+        System.out.println("-------startingdeck joske------");
+        PrintStack(joske.getSpelerDeck());
+
         for(int i = 0; i < 5; i++) {
             joske.takeCardsFromDeck();
         }
 
-        System.out.println("hand");
+        System.out.println("--------------deck-------------");
+        PrintStack(joske.getSpelerDeck());
+
+        System.out.println("--------------hand-------------");
         PrintArray(joske.getSpelerHand());
-        System.out.println("deck");
-        PrintStack(speler1stack);
-    }
 
-    public ArrayList<Card> getHandKaarten() {
-        return HandKaarten;
-    }
+        System.out.println("-----------discardpile--------");
+        joske.handToDiscardPile();
+        PrintStack(joske.getDiscardPile());
 
-    public void ShuffleHandCards(){
-        Collections.shuffle(HandKaarten);
+        System.out.println("-----------deck---------");
+        joske.discardPileToDeck();
+        PrintStack(joske.getSpelerDeck());
+
     }
 
     public static void PrintArray(ArrayList<Card> kaarten){
@@ -79,7 +74,6 @@ public class Game {
         return totalValue;
     }
 
-    //foefelinge
     public static int getVictorypoints(ArrayList<Card> kaarten){
         int Victorypoints = 0;
         for (int i = 0; i < kaarten.size(); i++){
@@ -92,6 +86,3 @@ public class Game {
         return Victorypoints;
     }
 }
-
-
-

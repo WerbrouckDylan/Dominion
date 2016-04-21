@@ -1,6 +1,6 @@
 
 public enum AbilityEnum {
-    Cellar,Smithy,Festival;
+    Cellar,Smithy,Festival,Moat;
 
     public static void doShit(AbilityEnum ability){
         switch (ability){
