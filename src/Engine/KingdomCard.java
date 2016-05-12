@@ -10,7 +10,10 @@ public class KingdomCard extends Card {
         this.ability = ability;
     }
 
-    public void doAbility(){
-        AbilityEnum.doShit(ability);
-    }
+    /**
+     public void doAbility(){
+     AbilityEnum.doShit(ability);
+     }
+     */
+
 }

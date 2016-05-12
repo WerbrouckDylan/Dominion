@@ -8,36 +8,10 @@ public class Game {
 
     }
 
-    public static void main(String[] args) {
-        Stack<Card> speler1Deck = new Stack<Card>();
-        Stack<Card> speler1DiscardPile = new Stack<Card>();
-        Player joske = new Player(speler1Deck, speler1DiscardPile, "joske");
-
-        joske.initStartingDeck();
-        System.out.println("-------startingdeck joske------");
-        PrintStack(joske.getSpelerDeck());
-
-        for(int i = 0; i < 5; i++) {
-            joske.takeCardsFromDeck();
+    public static void isDeckLeeg(Player speler){
+        if(speler.getSpelerDeck().size() == 0){
+            speler.discardPileToDeck();
         }
-
-        System.out.println("--------------deck-------------");
-        PrintStack(joske.getSpelerDeck());
-
-        System.out.println("--------------hand-------------");
-        PrintArray(joske.getSpelerHand());
-
-        System.out.println("-----------discardpile--------");
-        joske.handToDiscardPile();
-        PrintStack(joske.getDiscardPile());
-
-        System.out.println("---");
-        PrintArray(joske.getSpelerHand());
-
-        System.out.println("-----------deck---------");
-        joske.discardPileToDeck();
-        PrintStack(joske.getSpelerDeck());
-
     }
 
     public static void PrintArray(ArrayList<Card> kaarten){
@@ -45,8 +19,6 @@ public class Game {
             System.out.println(kaarten.get(kaart).getName());
             try{
                 TreasureCard treasureCard = ((TreasureCard)kaarten.get(kaart));
-                //System.out.println("Value is= " + treasureCard.getCoinValue());
-                //System.out.println();
             }catch(ClassCastException e){
             }
         }
@@ -57,24 +29,20 @@ public class Game {
             System.out.println(kaarten.get(kaart).getName());
             try{
                 TreasureCard treasureCard = ((TreasureCard)kaarten.get(kaart));
-                //System.out.println("Value is= " + treasureCard.getCoinValue());
-                //System.out.println();
             }catch(ClassCastException e){
             }
         }
     }
 
     public static int getTotalCoinValue(ArrayList<Card> kaarten){
-        //PrettyPrintCards(HandKaarten);
         int totalValue = 0;
         for (int i = 0; i < kaarten.size(); i++) {
              try {
                  TreasureCard treasureCard = (TreasureCard)kaarten.get(i);
                  totalValue += treasureCard.getCoinValue();
              }catch (ClassCastException e){}
-
         }
-        System.out.println("Total Value= " + totalValue);
+        System.out.println("Total Value = " + totalValue);
         return totalValue;
     }
 
@@ -86,7 +54,7 @@ public class Game {
                 Victorypoints += victoryCard.getVictoryPoints();
             }catch (ClassCastException e){}
         }
-        System.out.println("Victorypoints= " + Victorypoints);
+        System.out.println("Victorypoints = " + Victorypoints);
         return Victorypoints;
     }
 }
