@@ -8,6 +8,7 @@ public class Player {
     private int actions = 0;
     private int coins = 0;
     private int buys = 0;
+    private int victorypoints = 0;
     private String naam;
     private ArrayList<Card> spelerHand = new ArrayList<Card>();
     private ArrayList<Card> PlayArea = new ArrayList<Card>();
@@ -36,14 +37,38 @@ public class Player {
 
     public void discardPileToDeck(){
         SpelerDeck.addAll(DiscardPile);
+        Collections.shuffle(SpelerDeck);
+       /* if(getSpelerDeck().size() == 0){
+            discardPileToDeck();
+        }
+        */
     }
 
-    public void takeCardsFromDeck(){
-       spelerHand.add(SpelerDeck.pop());
+    public void takeCardsFromDeck(int aantal){
+        for (int i =0;i< aantal; i++ ) {
+            spelerHand.add(SpelerDeck.pop());
+        }
+    }
+
+    public int getVictorypoints(){
+        return victorypoints;
+    }
+
+    public void setVictorypoints(int a){
+        this.victorypoints = victorypoints + a;
     }
 
     public void playAreaToDiscardpile(){
-        PlayArea.addAll(DiscardPile);
+        DiscardPile.addAll(PlayArea);
+    }
+
+    public void handToPlayArea(){               //gekozen kaart in arraylist van de play area steken
+                                                //// TODO: 21-4-2016  
+    }
+
+    public void coinsToPlayArea(){              //// TODO: 21-4-2016  
+        //PlayArea.add(spelerHand.)
+        //heeft kaart coinvalue, zo ja voeg to aan coins van speler
     }
 
     public void handToDiscardPile(){
@@ -71,8 +96,8 @@ public class Player {
         PlayArea = playArea;
     }
 
-    public void setActions(int actions) {
-        this.actions = actions;
+    public void setActions(int a) {
+        this.actions = actions + a;
     }
 
     public int getActions() {
@@ -83,16 +108,16 @@ public class Player {
         return coins;
     }
 
-    public void setCoins(int coins) {
-        this.coins = coins;
+    public void setCoins(int a) {
+        this.coins = coins +a;
     }
 
     public int getBuys() {
         return buys;
     }
 
-    public void setBuys(int buys) {
-        this.buys = buys;
+    public void setBuys(int a) {
+        this.buys = buys +a;
     }
 
     public String getNaam() {

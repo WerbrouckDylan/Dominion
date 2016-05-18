@@ -3,6 +3,7 @@ package engine;
 import java.util.*;
 
 public class Game {
+    public ArrayList<Stack<Card>> BuyArea = new ArrayList<Stack<Card>>();
 
     public Game() {
 
@@ -15,14 +16,14 @@ public class Game {
     }
 
     public static void PrintArray(ArrayList<Card> kaarten){
-        for (int kaart = 0; kaart < kaarten.size(); kaart++) {
-            System.out.println(kaarten.get(kaart).getName());
-            try{
-                TreasureCard treasureCard = ((TreasureCard)kaarten.get(kaart));
-            }catch(ClassCastException e){
-            }
+     for (int kaart = 0; kaart < kaarten.size(); kaart++) {
+        System.out.println(kaarten.get(kaart).getName());
+        try{
+            TreasureCard treasureCard = ((TreasureCard)kaarten.get(kaart));
+        }catch(ClassCastException e){
         }
     }
+}
 
     public static void PrintStack(Stack<Card> kaarten){
         for (int kaart = 0; kaart < kaarten.size(); kaart++) {
